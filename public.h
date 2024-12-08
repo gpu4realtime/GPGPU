@@ -5,7 +5,7 @@
 namespace mat
 {
 	template<typename dataT>
-	std::vector<dataT> Inversion(const float* d_x, int n);
+	std::vector<dataT> Inversion(const float* in, int n);
 }
 
 namespace mat_test
