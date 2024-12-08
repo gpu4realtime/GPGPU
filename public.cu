@@ -41,10 +41,10 @@ namespace mat_gpu
 
 	template<typename dataT>
 	__device__ void compute_echelon_and_row_reduced_echelon_form_generic( Data<dataT>& data
-																		, dataT shared_00[TILE_DIM]
-																		, dataT shared_01[TILE_DIM]
-																		, int i
-																		, int j)
+									    , dataT shared_00[TILE_DIM]
+									    , dataT shared_01[TILE_DIM]
+									    , int i
+									    , int j)
 	{
 		#pragma unroll TILE_DIM
 		for (int k = 0; k < TILE_DIM; ++k)
@@ -133,10 +133,10 @@ namespace mat_gpu
 
 	template<typename dataT>
 	__device__ void compute_echelon_and_row_reduced_echelon_form_row( Data<dataT>& data
-																	, dataT shared_00[TILE_DIM]
-																	, dataT shared_01[TILE_DIM]
-																	, int i
-																	, int j)
+									, dataT shared_00[TILE_DIM]
+									, dataT shared_01[TILE_DIM]
+									, int i
+									, int j)
 	{
 		#pragma unroll TILE_DIM
 		for (int k = 0; k < TILE_DIM; ++k)
@@ -205,10 +205,10 @@ namespace mat_gpu
 
 	template<typename dataT>
 	__device__ void compute_echelon_and_row_reduced_echelon_form_pivot( Data<dataT>& data
-																	  , dataT shared_00[TILE_DIM]
-																	  , dataT shared_01[TILE_DIM]
-																	  , int i
-																	  , int j)
+									  , dataT shared_00[TILE_DIM]
+									  , dataT shared_01[TILE_DIM]
+									  , int i
+									  , int j)
 	{
 		#pragma unroll TILE_DIM
 		for (int k = 0; k < TILE_DIM; ++k)
@@ -254,11 +254,11 @@ namespace mat_gpu
 
 	template<typename dataT>
 	__global__ void __maxnreg__(MAX_N_REG) init_and_compute_echelon( dataT* in
-																   , dataT* augmat
-																   , dataT* buffer
-																   , int n
-																   , int nblocks
-																   , int iter)
+								       , dataT* augmat
+								       , dataT* buffer
+								       , int n
+								       , int nblocks
+								       , int iter)
 	{
 		__shared__ dataT shared_00[TILE_DIM];
 		__shared__ dataT shared_01[TILE_DIM];
@@ -379,11 +379,11 @@ namespace mat_gpu
 
 	template<typename dataT>
 	__global__ void __maxnreg__(MAX_N_REG) compute_echelon( dataT* inv
-														  , dataT* augmat
-														  , dataT* buffer
-														  , int n
-														  , int nblocks
-														  , int iter)
+							      , dataT* augmat
+							      , dataT* buffer
+							      , int n
+							      , int nblocks
+							      , int iter)
 	{
 		__shared__ dataT shared_00[TILE_DIM];
 		__shared__ dataT shared_01[TILE_DIM];
@@ -591,20 +591,20 @@ namespace mat
 			if (iter != 0)
 			{
 				mat_gpu::compute_echelon<dataT> <<< num_of_processing_blocks, block_size >>>( d_data
-																							, d_augmat
-																							, d_buffer
-																							, n
-																							, num_of_blocks_in_column
-																							, iter);
+													    , d_augmat
+													    , d_buffer
+													    , n
+													    , num_of_blocks_in_column
+													    , iter);
 			}
 			else
 			{
 				mat_gpu::init_and_compute_echelon<dataT> <<< num_of_processing_blocks, block_size >>>( d_data
-																									 , d_augmat
-																									 , d_buffer
-																									 , n
-																									 , num_of_blocks_in_column
-																									 , iter);
+														     , d_augmat
+														     , d_buffer
+														     , n
+														     , num_of_blocks_in_column
+														     , iter);
 			}
 
 			const auto err = cudaGetLastError();
