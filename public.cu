@@ -96,32 +96,40 @@ namespace mat_gpu
 
 			if (k + 1 == 4 * i)
 			{
-				data.x_00_0 = __fdiv_rz(data.x_00_0, __shfl_sync(0xFFFFFFFF, data.x_00_0, k + 1, TILE_DIM));
-				data.x_01_0 = __fdiv_rz(data.x_01_0, __shfl_sync(0xFFFFFFFF, data.x_00_0, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_0, k + 1, TILE_DIM);
+
+				data.x_00_0 = __fdiv_rz(data.x_00_0, val);
+				data.x_01_0 = __fdiv_rz(data.x_01_0, val);
 
 				shared_00[j] = data.x_00_0;
 				shared_01[j] = data.x_01_0;
 			}
 			else if (k + 1 == 4 * i + 1)
 			{
-				data.x_00_1 = __fdiv_rz(data.x_00_1, __shfl_sync(0xFFFFFFFF, data.x_00_1, k + 1, TILE_DIM));
-				data.x_01_1 = __fdiv_rz(data.x_01_1, __shfl_sync(0xFFFFFFFF, data.x_00_1, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_1, k + 1, TILE_DIM);
+
+				data.x_00_1 = __fdiv_rz(data.x_00_1, val);
+				data.x_01_1 = __fdiv_rz(data.x_01_1, val);
 
 				shared_00[j] = data.x_00_1;
 				shared_01[j] = data.x_01_1;
 			}
 			else if (k + 1 == 4 * i + 2)
 			{
-				data.x_00_2 = __fdiv_rz(data.x_00_2, __shfl_sync(0xFFFFFFFF, data.x_00_2, k + 1, TILE_DIM));
-				data.x_01_2 = __fdiv_rz(data.x_01_2, __shfl_sync(0xFFFFFFFF, data.x_00_2, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_2, k + 1, TILE_DIM);
+
+				data.x_00_2 = __fdiv_rz(data.x_00_2, val);
+				data.x_01_2 = __fdiv_rz(data.x_01_2, val);
 
 				shared_00[j] = data.x_00_2;
 				shared_01[j] = data.x_01_2;
 			}
 			else if (k + 1 == 4 * i + 3)
 			{
-				data.x_00_3 = __fdiv_rz(data.x_00_3, __shfl_sync(0xFFFFFFFF, data.x_00_3, k + 1, TILE_DIM));
-				data.x_01_3 = __fdiv_rz(data.x_01_3, __shfl_sync(0xFFFFFFFF, data.x_00_3, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_3, k + 1, TILE_DIM);
+
+				data.x_00_3 = __fdiv_rz(data.x_00_3, val);
+				data.x_01_3 = __fdiv_rz(data.x_01_3, val);
 
 				shared_00[j] = data.x_00_3;
 				shared_01[j] = data.x_01_3;
@@ -168,32 +176,40 @@ namespace mat_gpu
 
 			if (k + 1 == 4 * i)
 			{
-				data.x_00_0 = __fdiv_rz(data.x_00_0, __shfl_sync(0xFFFFFFFF, data.x_00_0, k + 1, TILE_DIM));
-				data.x_01_0 = __fdiv_rz(data.x_01_0, __shfl_sync(0xFFFFFFFF, data.x_00_0, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_0, k + 1, TILE_DIM);
+
+				data.x_00_0 = __fdiv_rz(data.x_00_0, val);
+				data.x_01_0 = __fdiv_rz(data.x_01_0, val);
 
 				shared_00[j] = data.x_00_0;
 				shared_01[j] = data.x_01_0;
 			}
 			else if (k + 1 == 4 * i + 1)
 			{
-				data.x_00_1 = __fdiv_rz(data.x_00_1, __shfl_sync(0xFFFFFFFF, data.x_00_1, k + 1, TILE_DIM));
-				data.x_01_1 = __fdiv_rz(data.x_01_1, __shfl_sync(0xFFFFFFFF, data.x_00_1, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_1, k + 1, TILE_DIM);
+
+				data.x_00_1 = __fdiv_rz(data.x_00_1, val);
+				data.x_01_1 = __fdiv_rz(data.x_01_1, val);
 
 				shared_00[j] = data.x_00_1;
 				shared_01[j] = data.x_01_1;
 			}
 			else if (k + 1 == 4 * i + 2)
 			{
-				data.x_00_2 = __fdiv_rz(data.x_00_2, __shfl_sync(0xFFFFFFFF, data.x_00_2, k + 1, TILE_DIM));
-				data.x_01_2 = __fdiv_rz(data.x_01_2, __shfl_sync(0xFFFFFFFF, data.x_00_2, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_2, k + 1, TILE_DIM);
+
+				data.x_00_2 = __fdiv_rz(data.x_00_2, val);
+				data.x_01_2 = __fdiv_rz(data.x_01_2, val);
 
 				shared_00[j] = data.x_00_2;
 				shared_01[j] = data.x_01_2;
 			}
 			else if (k + 1 == 4 * i + 3)
 			{
-				data.x_00_3 = __fdiv_rz(data.x_00_3, __shfl_sync(0xFFFFFFFF, data.x_00_3, k + 1, TILE_DIM));
-				data.x_01_3 = __fdiv_rz(data.x_01_3, __shfl_sync(0xFFFFFFFF, data.x_00_3, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_3, k + 1, TILE_DIM);
+
+				data.x_00_3 = __fdiv_rz(data.x_00_3, val);
+				data.x_01_3 = __fdiv_rz(data.x_01_3, val);
 
 				shared_00[j] = data.x_00_3;
 				shared_01[j] = data.x_01_3;
@@ -225,25 +241,33 @@ namespace mat_gpu
 
 			if (k + 1 == 4 * i)
 			{
-				data.x_00_0 = __fdiv_rz(data.x_00_0, __shfl_sync(0xFFFFFFFF, data.x_00_0, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_0, k + 1, TILE_DIM);
+
+				data.x_00_0 = __fdiv_rz(data.x_00_0, val);
 
 				shared_00[j] = data.x_00_0;
 			}
 			else if (k + 1 == 4 * i + 1)
 			{
-				data.x_00_1 = __fdiv_rz(data.x_00_1, __shfl_sync(0xFFFFFFFF, data.x_00_1, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_1, k + 1, TILE_DIM);
+
+				data.x_00_1 = __fdiv_rz(data.x_00_1, val);
 
 				shared_00[j] = data.x_00_1;
 			}
 			else if (k + 1 == 4 * i + 2)
 			{
-				data.x_00_2 = __fdiv_rz(data.x_00_2, __shfl_sync(0xFFFFFFFF, data.x_00_2, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_2, k + 1, TILE_DIM);
+
+				data.x_00_2 = __fdiv_rz(data.x_00_2, val);
 
 				shared_00[j] = data.x_00_2;
 			}
 			else if (k + 1 == 4 * i + 3)
 			{
-				data.x_00_3 = __fdiv_rz(data.x_00_3, __shfl_sync(0xFFFFFFFF, data.x_00_3, k + 1, TILE_DIM));
+				dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_3, k + 1, TILE_DIM);
+
+				data.x_00_3 = __fdiv_rz(data.x_00_3, val);
 
 				shared_00[j] = data.x_00_3;
 			}
@@ -300,8 +324,10 @@ namespace mat_gpu
 
 		if (threadIdx.y == 0)
 		{
-			data.x_00_0 = __fdiv_rz(data.x_00_0, __shfl_sync(0xFFFFFFFF, data.x_00_0, 0, TILE_DIM));
-			data.x_01_0 = __fdiv_rz(data.x_01_0, __shfl_sync(0xFFFFFFFF, data.x_00_0, 0, TILE_DIM));
+			dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_0, 0, TILE_DIM);
+
+			data.x_00_0 = __fdiv_rz(data.x_00_0, val);
+			data.x_01_0 = __fdiv_rz(data.x_01_0, val);
 
 			shared_00[threadIdx.x] = data.x_00_0;
 			shared_01[threadIdx.x] = data.x_01_0;
@@ -435,8 +461,10 @@ namespace mat_gpu
 
 		if (threadIdx.y == 0)
 		{
-			data.x_00_0 = __fdiv_rz(data.x_00_0, __shfl_sync(0xFFFFFFFF, data.x_00_0, 0, TILE_DIM));
-			data.x_01_0 = __fdiv_rz(data.x_01_0, __shfl_sync(0xFFFFFFFF, data.x_00_0, 0, TILE_DIM));
+			dataT val = __shfl_sync(0xFFFFFFFF, data.x_00_0, 0, TILE_DIM);
+
+			data.x_00_0 = __fdiv_rz(data.x_00_0, val);
+			data.x_01_0 = __fdiv_rz(data.x_01_0, val);
 
 			shared_00[threadIdx.x] = data.x_00_0;
 			shared_01[threadIdx.x] = data.x_01_0;
@@ -655,7 +683,7 @@ namespace mat_test
 		
 		inv = mat::Inversion<float>(x.first.data(), 2048);
 
-		assert(true == cmp<float>(inv, read_file<float>("test_data/2048_2048_inv_matrix.csv", false).first, 0.00000001f));
+		assert(true == cmp<float>(inv, read_file<float>("test_data/2048_2048_inv_matrix.csv", false).first, 0.000001f));
 
 		x = read_file<float>("test_data/256_256_matrix.csv", true);
 		
