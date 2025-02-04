@@ -11,10 +11,10 @@ migrated and optimized from an algorithm posted on https://www.mathworks.com/mat
 
 Timings on RTX 3060 Ti:
 
-2784x2784 	Time = 73716[micro s]
+2784x2784 	Time ~ 80718[micro s]
 
-2048x2048 	Time = 30955[micro s]
+2048x2048 	Time ~ 28510[micro s]
 
-256x256 	Time = 337[micro s]
+256x256 	Time ~ 320[micro s]
 
-64x64 		Time = 234[micro s]
+64x64 		Time ~ 143[micro s]
